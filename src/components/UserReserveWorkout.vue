@@ -85,6 +85,10 @@ export default {
   },
 
   created(){
+    const token = localStorage.getItem('jwt')
+    const username = localStorage.getItem('username')
+    console.log('Bearer ', token)
+    console.log('username: ', username)
     axios.get('http://localhost:5000/termin/st/1', {
       headers:{
         'Authorization': 'Bearer '+ token
