@@ -1,56 +1,26 @@
 <template>
   <Header />
-  <!-- <NavBarNotLoggedIn /> -->
-  <NavBarLoggedIn />
+  <NavBarNotLoggedIn />
+  <!-- <NavBarLoggedIn /> -->
   <!-- <Home v-bind:treninzi="treninzi" v-bind:masaze="masaze"/> -->
 </template>
 
 <script>
 import Header from './views/Header.vue'
 import NavBarNotLoggedIn from './views/NavBarNotLoggedIn.vue'
-import NavBarLoggedIn from './components/NavBarLoggedIn.vue'
-import Home from './views/Home.vue'
+// import NavBarLoggedIn from './components/NavBarLoggedIn.vue'
+// import Home from './views/Home.vue'
 
-import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     Header,
     NavBarNotLoggedIn,
-    NavBarLoggedIn,
-    Home
+    // NavBarLoggedIn,
+    // Home
   }
 
-  // data(){
-  //   return {
-  //     treninzi: [
-        
-  //     ],
-  //     masaze: [
-        
-  //     ],
-  //     // treninzi_ponedeljak: [
-
-  //     // ]
-  //   }
-  // },
-
-  // created(){
-  //   axios.get('http://localhost:5000/trening')
-  //   .then(res => this.treninzi = res.data)
-  //   .catch(err => console.log(err))
-
-  //   axios.get('http://localhost:5000/masaza')
-  //   .then(res => this.masaze = res.data)
-  //   .catch(err => console.log(err))
-
-  //   // axios.get('http://localhost:5000/termin/st/1')
-  //   // .then(res => this.treninzi_ponedeljak = res.data)
-  //   // .catch(err => console.log(err))
-
-  //   // console.log("broj trening ponedeljkom ", this.treninzi_ponedeljak.length)
-  // }
 }
 </script>
 

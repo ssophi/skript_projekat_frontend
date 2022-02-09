@@ -1,4 +1,5 @@
 <template>
+<!-- <NavBarNotLoggedIn /> -->
   <div class="home">
     <h2>Svi treninzi u ponudi</h2>
 
@@ -31,6 +32,7 @@
 
 import WorkoutItem from './WorkoutItem.vue'
 import MasageItem from './MasageItem.vue'
+import NavBarNotLoggedIn from './NavBarNotLoggedIn.vue'
 import axios from 'axios'
 
 export default {
@@ -38,7 +40,8 @@ export default {
   name: 'Home',
   components: {
      WorkoutItem,
-     MasageItem
+     MasageItem,
+     NavBarNotLoggedIn
   },
   
   data(){

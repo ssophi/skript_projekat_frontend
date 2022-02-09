@@ -5,7 +5,7 @@
 
   <div>
     <form @submit.prevent="addBlogPost">
-      <b class="Same">Ime: </b> <p class="Same">Izvuci iz baze koje je ime</p><br>
+      <b class="Same">Ime: </b> <p class="Same">{{user.ime}}</p><br>
       <b class="Same">Prezime: </b> <p class="Same">Izvuci iz baze koje je prezime</p><br>
       <b class="Same">Username: </b> <p class="Same">Izvuci iz baze koje je username</p><br>
       <b class="Same">Email: </b> <p class="Same">Izvuci iz baze koje je email</p><br>
@@ -15,23 +15,29 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
+  
   name: 'UserHome',
   components: {
     
   },
   data(){
     return {
-      user: [
-        
-      ]
+      user: {
+        username:'',
+        ime:'',
+        prezime:'',
+        email:''
+      }
     }
   },
 
   created(){
-    axios.get('http://localhost:5000/user/:username',{ params: { username: '7' }}) //vrednost username-a ce biti uzeta iz localStorage
-    .then(res => this.treninzi = res.data)
+    axios.get('http://localhost:5000/user/', localStorage.getItem('username')) //vrednost username-a ce biti uzeta iz localStorage
+    .then(res => {this.user = res.data
+      console.log(user)})
     .catch(err => console.log(err))
   }
 }

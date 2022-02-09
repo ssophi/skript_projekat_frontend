@@ -1,39 +1,44 @@
 <template>
     <div>
         <h2>Log In</h2>
-        <form id="loginForm" v-on:submit="login">
+        <form id="loginForm" v-on:submit="getUserByUsername">
             <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" v-model="username" placeholder="Username" required>
+                <label for="username">Username: </label>
+                <input type="text" id="username" v-model="form.username" name="username" placeholder="Username" required>
             </div>
             <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" v-model="password" placeholder="Password" required>
+                <label for="password">Password: </label>
+                <input type="password" id="password" v-model="form.password" name="password" placeholder="Password" required>
             </div>
-            <button type="submit">Submit</button>
+            <input type="submit" value="Log In" class="btn">
         </form>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'LogIn',
-  components: {
-    
-  },
   data(){
     return {
-      user: [
-        
-      ]
+      form:{
+          username:'',
+          password:''
+      }
     }
   },
 
-  created(){
-    axios.get('http://localhost:5000/user/:username') //vrednost username-a ce biti uzeta iz localStorage
-    .then(res => this.treninzi = res.data)
-    .catch(err => console.log(err))
+  methods:{
+    getUserByUsername(){
+        console.log('http://localhost:5000/user/login', this.form)
+        axios.post('http://localhost:5000/user/login', this.form)
+        .then(res => {
+            console.log(res.data.token)
+            localStorage.setItem('username', this.form.username)
+            localStorage.setItem('jwt', res.data.token)})
+        .catch(err => console.log(err))
+    }
   }
 }
 </script>

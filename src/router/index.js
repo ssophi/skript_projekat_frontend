@@ -7,6 +7,7 @@ import UserReserveWorkout from '../components/UserReserveWorkout.vue'
 import UserReserveMasage from '../components/UserReserveMasage.vue'
 import UserMyPage from '../components/UserMyPage.vue'
 import LogIn from '../views/LogIn.vue'
+import Registration from '../views/Registration.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/login',
     name: 'LogIn',
     component: LogIn
+  },
+  {
+    path: '/register',
+    name: 'Registration',
+    component: Registration
   },
   {
     path: '/about',
