@@ -2,15 +2,43 @@
      <div class="masage-item">
         <b>{{masaza.tip}}</b> 
         <p>satnica: od {{masaza.sati_od}} do {{masaza.sati_do}}</p>
-        <!-- <p>{{trening.termini}}</p> -->
-        <!-- <button @click="$emit('del-blogpost', blogpost.id)" class="del">x</button> -->
-    </div>
+        <button @click="reserve()" class="btn-reserve">RESERVE</button>    
+      </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name:"UserReserveMassageItem",
-    props:["masaza"]
+    props:["masaza"],
+    data(){
+    return {
+      form:{
+          username: localStorage.getItem('username'),
+          terminId: this.masaza.id
+      }
+    }
+  },
+  methods:{
+    reserve(){
+      const token = localStorage.getItem('jwt')
+      const username = localStorage.getItem('username')
+      console.log('Bearer ', token)
+      console.log('username: ', username)
+        console.log('http://localhost:5000/rezervacija', this.form)
+        axios.post('http://localhost:5000/rezervacija', this.form, {
+          headers:{
+          'Authorization': 'Bearer '+ token
+          }
+        })
+        .then(res => {
+            // console.log(res.data.token)
+            })
+            this.$router.push('user') 
+        .catch(err => console.log(err))
+    }
+  }
 }
 </script>
 
@@ -21,13 +49,13 @@ export default {
     border-bottom: 1px #ccc dotted;
   }
 
-  /* .del {
-    background: #ff0000;
-    color: #fff;
+  .btn-reserve {
+    display: inline-block;
     border: none;
-    padding: 5px 9px;
-    border-radius: 50%;
+    background: #555;
+    color: #fff;
+    padding: 7px 20px;
     cursor: pointer;
-    float: right;
-  } */
+    border-radius: 10px;
+  }
 </style>
