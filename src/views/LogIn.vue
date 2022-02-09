@@ -17,9 +17,12 @@
 
 <script>
 import axios from 'axios'
+import UserReserveWorkout from '../components/UserReserveWorkout.vue'
 
 export default {
   name: 'LogIn',
+
+  components: UserReserveWorkout,
   data(){
     return {
       form:{
@@ -37,6 +40,7 @@ export default {
             console.log(res.data.token)
             localStorage.setItem('username', this.form.username)
             localStorage.setItem('jwt', res.data.token)})
+            this.$router.push('user') 
         .catch(err => console.log(err))
     }
   }

@@ -10,7 +10,7 @@
   <!-- <h2>Nav Bar Not Logged In </h2> -->
 
   <div call="container">
-       <button class = "btn-logOut">Log Out</button>
+       <button @click="logOut()" class = "btn-logOut">Log Out</button>
   </div>
 </template>
 
@@ -21,6 +21,13 @@ export default {
   name: 'NavBarLoggedIn',
   components: {
     //Header
+  },
+  methods:{
+    logOut(){
+      localStorage.removeItem("username")
+      localStorage.removeItem("jwt")
+      this.$router.push('/'); 
+    },
   }
 }
 </script>

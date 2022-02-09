@@ -1,13 +1,13 @@
 <template>
   <Header />
-  <NavBarNotLoggedIn />
+  <!-- <NavBarNotLoggedIn /> -->
   <!-- <NavBarLoggedIn /> -->
   <!-- <Home v-bind:treninzi="treninzi" v-bind:masaze="masaze"/> -->
 </template>
 
 <script>
 import Header from './views/Header.vue'
-import NavBarNotLoggedIn from './views/NavBarNotLoggedIn.vue'
+// import NavBarNotLoggedIn from './views/NavBarNotLoggedIn.vue'
 // import NavBarLoggedIn from './components/NavBarLoggedIn.vue'
 // import Home from './views/Home.vue'
 
@@ -15,8 +15,8 @@ import NavBarNotLoggedIn from './views/NavBarNotLoggedIn.vue'
 export default {
   name: 'App',
   components: {
-    Header,
-    NavBarNotLoggedIn,
+    Header
+    // NavBarNotLoggedIn,
     // NavBarLoggedIn,
     // Home
   }

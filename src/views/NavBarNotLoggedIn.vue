@@ -8,8 +8,8 @@
   <!-- <h2>Nav Bar Not Logged In </h2> -->
 
   <div call="container">
-       <button class = "btn-logIn">Log In</button>
-      <button class = "btn-signUp">Sign Up</button>
+       <button  @click="goToLogIn()" class = "btn-logIn">Log In</button>
+      <button  @click="goToRegister()" class = "btn-signUp">Sign Up</button>
   </div>
 </template>
 
@@ -20,6 +20,15 @@ export default {
   name: 'NavBarNotLoggedIn',
   components: {
     //Header
+  },
+
+  methods:{
+    goToLogIn(){
+      this.$router.push('/login'); 
+    },
+    goToRegister(){
+      this.$router.push('/register'); 
+    }
   }
 }
 </script>

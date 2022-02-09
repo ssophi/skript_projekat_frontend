@@ -1,5 +1,5 @@
 <template>
-<!-- <NavBarNotLoggedIn /> -->
+<NavBarNotLoggedIn />
   <div class="home">
     <h2>Svi treninzi u ponudi</h2>
 

@@ -10,11 +10,11 @@ import LogIn from '../views/LogIn.vue'
 import Registration from '../views/Registration.vue'
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home
+  // },
   {
     path: '/login',
     name: 'LogIn',
