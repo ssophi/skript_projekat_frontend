@@ -5,7 +5,6 @@
     <router-link to="/contact">Contact</router-link> |
   </div>
   <router-view/>
-  <!-- <h2>Nav Bar Not Logged In </h2> -->
 
   <div call="container">
        <button  @click="goToLogIn()" class = "btn-logIn">Log In</button>
@@ -18,9 +17,6 @@
 
 export default {
   name: 'NavBarNotLoggedIn',
-  components: {
-    //Header
-  },
 
   methods:{
     goToLogIn(){
@@ -46,7 +42,6 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
 
 .btn-signUp {
     position: absolute;

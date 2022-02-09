@@ -1,23 +1,30 @@
 <template>
   <Header />
   <!-- <NavBarNotLoggedIn /> -->
+  <router-view/>
   <!-- <NavBarLoggedIn /> -->
   <!-- <Home v-bind:treninzi="treninzi" v-bind:masaze="masaze"/> -->
+  <!-- <div>
+    <p> </p>
+  </div> -->
+  <NavBar />
 </template>
 
 <script>
 import Header from './views/Header.vue'
-// import NavBarNotLoggedIn from './views/NavBarNotLoggedIn.vue'
-// import NavBarLoggedIn from './components/NavBarLoggedIn.vue'
+import NavBarNotLoggedIn from './views/NavBarNotLoggedIn.vue'
+import NavBarLoggedIn from './components/NavBarLoggedIn.vue'
+import NavBar from './components/NavBar.vue'
 // import Home from './views/Home.vue'
 
 
 export default {
   name: 'App',
   components: {
-    Header
-    // NavBarNotLoggedIn,
-    // NavBarLoggedIn,
+    Header,
+    NavBarNotLoggedIn,
+    NavBarLoggedIn,
+    NavBar
     // Home
   }
 

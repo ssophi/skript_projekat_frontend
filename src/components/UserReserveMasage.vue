@@ -1,4 +1,5 @@
 <template>
+<NavBarLoggedIn />
   <div class="userhome">
     <h2>Forma za zakazivanje masaza</h2>
   </div>
@@ -51,11 +52,13 @@
 <script>
 import axios from 'axios'
 import UserReserveMasageItem from './UserReserveMasageItem.vue'
+import NavBarLoggedIn from './NavBarLoggedIn.vue'
 
 export default {
   name: "UserReserveWorkout",
   components: {
-    UserReserveMasageItem
+    UserReserveMasageItem,
+    NavBarLoggedIn
   },
     // props: ["blogposts"]
 
@@ -83,31 +86,61 @@ data(){
   },
 
   created(){
-    axios.get('http://localhost:5000/termin/sm/1')
+    const token = localStorage.getItem('jwt')
+    console.log('Bearer ', token)
+    axios.get('http://localhost:5000/termin/sm/1', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_ponedeljak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/sm/2')
+    axios.get('http://localhost:5000/termin/sm/2', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_utorak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/sm/3')
+    axios.get('http://localhost:5000/termin/sm/3', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_sreda = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/sm/4')
+    axios.get('http://localhost:5000/termin/sm/4', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_cetvrtak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/sm/5')
+    axios.get('http://localhost:5000/termin/sm/5', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_petak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/sm/6')
+    axios.get('http://localhost:5000/termin/sm/6', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_subota = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/sm/7')
+    axios.get('http://localhost:5000/termin/sm/7', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.masaze_nedelja = res.data)
     .catch(err => console.log(err))
   }

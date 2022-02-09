@@ -1,4 +1,5 @@
 <template>
+<NavBarLoggedIn />
   <div class="userhome">
     <h2>My Page</h2>
   </div>
@@ -16,12 +17,13 @@
 
 <script>
 import axios from 'axios'
+import NavBarLoggedIn from './NavBarLoggedIn.vue'
 
 export default {
   
   name: 'UserHome',
   components: {
-    
+    NavBarLoggedIn
   },
   data(){
     return {

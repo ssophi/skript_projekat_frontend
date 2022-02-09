@@ -1,4 +1,5 @@
 <template>
+<NavBarLoggedIn/>
   <div class="userhome">
     <h2>Forma za zakazivanje treninga</h2>
   </div>
@@ -51,11 +52,13 @@
 <script>
 import axios from 'axios'
 import UserReserveWorkoutItem from './UserReserveWorkoutItem.vue'
+import NavBarLoggedIn from './NavBarLoggedIn.vue'
 
 export default {
   name: "UserReserveWorkout",
   components: {
-     UserReserveWorkoutItem
+     UserReserveWorkoutItem,
+     NavBarLoggedIn
   },
 
   data(){
@@ -74,36 +77,68 @@ export default {
         
       ], treninzi_nedelja: [
         
-      ]
+      ],
+      form:{
+          
+      }
     }
   },
 
   created(){
-    axios.get('http://localhost:5000/termin/st/1')
-    .then(res => this.treninzi_ponedeljak = res.data)
+    axios.get('http://localhost:5000/termin/st/1', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
+    .then(res => {this.treninzi_ponedeljak = res.data
+      console.log("username: ", localStorage.getItem('username'))})
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/st/2')
+    axios.get('http://localhost:5000/termin/st/2', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.treninzi_utorak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/st/3')
+    axios.get('http://localhost:5000/termin/st/3', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.treninzi_sreda = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/st/4')
+    axios.get('http://localhost:5000/termin/st/4', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.treninzi_cetvrtak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/st/5')
+    axios.get('http://localhost:5000/termin/st/5', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.treninzi_petak = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/st/6')
+    axios.get('http://localhost:5000/termin/st/6', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.treninzi_subota = res.data)
     .catch(err => console.log(err))
 
-    axios.get('http://localhost:5000/termin/st/7')
+    axios.get('http://localhost:5000/termin/st/7', {
+      headers:{
+        'Authorization': 'Bearer '+ token
+      }
+    })
     .then(res => this.treninzi_nedelja = res.data)
     .catch(err => console.log(err))
   }
