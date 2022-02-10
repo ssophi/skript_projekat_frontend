@@ -33,9 +33,7 @@ export default {
           }
         })
         .then(res => {
-            console.log(res.data.token)
-            // localStorage.setItem('username', this.form.username)
-            // localStorage.setItem('jwt', res.data.token)
+            // console.log(res.data.token)
             })
             this.$router.push('user') 
         .catch(err => console.log(err))

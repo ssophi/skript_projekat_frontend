@@ -18,6 +18,9 @@
 <script>
 import axios from 'axios'
 import UserReserveWorkout from '../components/UserReserveWorkout.vue'
+// import vueJoiValidation from 'vue-joi-validation'
+
+// Vue.use(vueJoiValidation)
 
 export default {
   name: 'LogIn',
@@ -34,6 +37,7 @@ export default {
 
   methods:{
     getUserByUsername(){
+
         console.log('http://localhost:5000/user/login', this.form)
         axios.post('http://localhost:5000/user/login', this.form)
         .then(res => {
